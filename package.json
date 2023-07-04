@@ -1,0 +1,15 @@
+{
+  "name": "pdfview",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.4.0"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^3.8.162"
+  }
+}
