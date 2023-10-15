@@ -1,36 +1,29 @@
 const { invoke } = window.__TAURI__.tauri;
 
+
 // Get the drop zone element
 const dropZone = document.getElementById("dropZone");
 
 function handleUpload() {
   const fileInput = document.getElementById('fileInput');
-  const file = fileInput.files[0];
+  // const file = fileInput.files[0];
 
-  if (file) {
-    // Perform actions to handle the uploaded file
-    const reader = new FileReader();
+  console.log(fileInput.value);
+  // console.log(file);
+  invoke('readdir', {path:'C:\\Users\\user\\Desktop\\self\\export\\sudu`'}).then((message) => console.log(message));
+  // if (file) {
+  //   const reader = new FileReader();
 
-    reader.onload = function(event) {
-      const fileData = event.target.result;
-      loadPDF(fileData);
-    };
+  //   reader.onload = function(event) {
+  //     const fileData = event.target.result;
+  //     loadPDF(fileData);
+  //   };
 
-    reader.readAsArrayBuffer(file);
-  } else {
-    alert('Please select a file to upload.');
-  }
+  //   reader.readAsArrayBuffer(file);
+  // } else {
+  //   alert('Please select a file to upload.');
+  // }
 }
-
-// function uploadFile(file) {
-//   console.log("File uploaded successfully:", file);
-//   const formData = new FormData();
-//   formData.append("pdfFile", file);
-
-//   // File uploaded successfully
-//   const uploadedFilePath = file.filePath;
-//   loadPDF(uploadedFilePath);
-// }
 
 function loadPDF(pdfData) {
   pdfjsLib.getDocument(pdfData).promise.then(function (pdf) {

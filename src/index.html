@@ -14,7 +14,8 @@
   
   <body>
     <div id="dropZone">
-      <input type="file" id="fileInput" />
+      <!-- <input type="file" id="fileInput" /> -->
+      <input id="fileInput" type="file" onchange="browseResult(event)" webkitdirectory directory multiple="false" />
       <button onclick="handleUpload()">Upload</button>
       
     </div>
